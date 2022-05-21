@@ -22,8 +22,8 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 type Props = {
     post: Post
-    comment: boolean
-    postId: string | string[] | undefined
+    comment?: boolean
+    postId?: string | string[] | undefined
 }
 
 
