@@ -1,0 +1,32 @@
+import { useRouter } from 'next/router'
+import React from 'react'
+import Avatar from '../../components/Avatar'
+import Feed from '../../components/Feed'
+import PostBox from '../../components/PostBox'
+
+const Subreddit = () => {
+
+    const { query: { topic } } = useRouter()
+
+  return (
+    <div className={`p-8`}>
+        <div className='-mx-8 mt-4 bg-white'>
+            <div className='flex mx-auto max-w-5xl items-center space-x-4 pb-3'>
+                <div className='-mt-5 -ml-2'>
+                    <Avatar seed={topic as string} large />
+                </div>
+                <div className='py-2'>
+                    <h1 className='text-2xl font-semibold'>Welcome to the r/{topic} subreddit</h1>
+                    <p className='text-sm text-gray-400'>r/{topic} </p>
+                </div>
+            </div>
+        </div>
+        <div className='max-w-5xl mx-auto pb-10'>
+            <PostBox subreddit={topic as string} input />
+            <Feed topic={topic as string}  />
+        </div>
+    </div>
+  )
+}
+
+export default Subreddit
